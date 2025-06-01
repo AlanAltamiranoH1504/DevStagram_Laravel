@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const errorMensaje = error[0];
                 const pError = document.createElement("p");
                 pError.textContent = errorMensaje;
-                pError.classList.add("bg-red-500", "text-center", "font-bold", "p-2", "border", "mb-2", "text-white")
+                pError.classList.add("bg-red-500", "text-center", "font-bold", "p-2", "border", "mb-2", "text-white", "rounded-lg")
                 divErrores.appendChild(pError);
 
                 setTimeout(() => {
