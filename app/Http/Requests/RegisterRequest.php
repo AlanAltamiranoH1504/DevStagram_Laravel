@@ -22,22 +22,23 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nombre" => "required|string|min:3|max:100",
-            "userName" => "required|string|min:3|max:100",
+            "name" => "required|string|min:3|max:100",
+            "username" => "required|string|min:3|max:100|unique:users",
             "password" => "required|string|min:5|max:100",
-            "email" => "required|string|min:3|max:100|email"
+            "email" => "required|string|min:3|max:100|email|unique:users"
         ];
     }
     public function messages(): array
     {
         return [
-            "nombre.required" => "El nombre es obligatorio",
-            "nombre.min" => "El nombre debe tener al menos 3 caracteres",
-            "nombre.max" => "El nombre debe tener maximo 100 caracteres",
+            "name.required" => "El nombre es obligatorio",
+            "name.min" => "El nombre debe tener al menos 3 caracteres",
+            "name.max" => "El nombre debe tener maximo 100 caracteres",
 
-            "userName.required" => "El user name es obligatorio",
-            "userName.min" => "El user name debe tener al menos 3 caracteres",
-            "userName.max" => "El user name debe tener maximo 100 caracteres",
+            "username.required" => "El user name es obligatorio",
+            "username.min" => "El user name debe tener al menos 3 caracteres",
+            "username.max" => "El user name debe tener maximo 100 caracteres",
+            "username.unique" => "El nombre de usuario ya esta registrado",
 
             "password.required" => "El passoword es obligatorio",
             "password.min" => "El password debe tener al menos 5 caracteres",
@@ -46,7 +47,8 @@ class RegisterRequest extends FormRequest
             "email.required" => "El email es obligatorio",
             "email.min" => "El email debe tener al menos 3 caracteres",
             "email.max" => "El email debe tener maximo 100 caracteres",
-            "email.email" => "El email debe tener formato de valido (@)"
+            "email.email" => "El email debe tener formato de valido (@)",
+            "email.unique" => "El email ya está registrado",
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class RegisterController extends Controller
     {
         $data = $request->validated();
 
-        $usuario = Usuario::create($data);
+        $usuario = User::create($data);
         return response()->json([
             "msg" => "Usuario creado correctamente",
             "status" => 200
