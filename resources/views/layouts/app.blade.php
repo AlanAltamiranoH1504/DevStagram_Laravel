@@ -14,7 +14,7 @@
             <div class="container mx-auto flex justify-between items-center">
                 <a href="/" class="text-3xl font-black">DevStagram</a>
                 <nav class="flex gap-4 items-center">
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="#">Iniciar Sesión</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{route("iniciar-sesion")}}">Iniciar Sesión</a>
                     <a class="font-bold uppercase text-gray-600 text-sm" href="{{route("crear-cuenta")}}">Crear Cuenta</a>
                 </nav>
             </div>

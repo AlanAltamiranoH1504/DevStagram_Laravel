@@ -46,8 +46,8 @@
                 </div>
 
                 <div class="mb-5 flex justify-between items-center text-sm">
-                    <a href="/iniciar-sesion" class="text-gray-600">Iniciar Sesión</a>
-                    <a href="/olvide-password" class="text-gray-500">Olvide Password</a>
+                    <a href="/iniciar-sesion" class="font-bold uppercase text-gray-600">Iniciar Sesión</a>
+                    <a href="/olvide-password" class="font-bold uppercase text-gray-500">Olvide Password</a>
                 </div>
 
                 <div class="mb-5">
