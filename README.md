@@ -1,66 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# DevStagram 📸🚀
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+DevStagram es una red social diseñada especialmente para desarrolladores que desean compartir su trabajo y creatividad a través de imágenes. Inspirada en Instagram, esta aplicación permite a los usuarios crear perfiles, publicar fotos, seguir a otros desarrolladores y dar "likes" a las publicaciones, fomentando una comunidad activa y colaborativa.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Estado del proyecto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+⚠️ **DevStagram está actualmente en proceso de desarrollo.** Algunas funcionalidades ya están implementadas, mientras que otras están en construcción o planificación para futuras versiones. Se trabaja continuamente para mejorar la experiencia y añadir nuevas características.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 💡 Descripción de la aplicación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+DevStagram es una plataforma pensada para facilitar la interacción y el intercambio visual entre programadores y creativos tecnológicos. Los usuarios pueden:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- 👤 **Crear un perfil personal:** donde pueden mostrar su foto, biografía y enlaces a sus proyectos o redes sociales.
+- 📷 **Publicar imágenes:** compartir capturas de código, proyectos terminados, gráficos o cualquier contenido relevante.
+- 🔄 **Seguir a otros usuarios:** para mantenerse al día con las novedades y publicaciones de sus desarrolladores favoritos.
+- ❤️ **Dar "likes" y comentar:** interactuar con las publicaciones, mostrando apoyo y generando conversaciones.
+- 📰 **Feed personalizado:** visualizar un flujo de publicaciones de las personas que siguen, para no perderse ninguna actualización.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🧰 Tecnologías principales
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- 🖥️ **Laravel 11:** Framework PHP que proporciona una base sólida para la arquitectura backend, gestión de base de datos y lógica de la aplicación.
+- 🗄️ **MySQL:** Sistema de gestión de bases de datos para almacenar usuarios, publicaciones, relaciones de seguidores y demás datos.
+- 📝 **Blade:** Motor de plantillas propio de Laravel, que facilita la creación de vistas dinámicas y reutilizables.
+- 🎨 **Tailwind CSS:** Framework CSS que permite un diseño moderno, limpio y responsivo sin complicaciones.
+- 🔗 **Eloquent ORM:** Manejo sencillo y elegante de la base de datos mediante modelos orientados a objetos.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🏗️ Arquitectura y funcionalidades clave
 
-## Contributing
+- 🔐 **Autenticación segura:** Registro, inicio de sesión y gestión de sesiones con protección contra accesos no autorizados.
+- 🤝 **Modelo de usuario robusto:** Permite relaciones de seguimiento entre usuarios (followers y following).
+- 🖼️ **CRUD completo para publicaciones:** Crear, leer, actualizar y eliminar fotos con títulos y descripciones.
+- 💬 **Interacción social:** Likes y comentarios para fomentar la participación.
+- 🖥️ **Vistas optimizadas:** Uso de Blade junto con Tailwind para interfaces limpias, fáciles de navegar y adaptables a dispositivos móviles.
+- ⚡ **Optimización de rendimiento:** Uso de migraciones y seeders para mantener la base de datos consistente y probar el sistema.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🎯 Objetivo
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+El objetivo de DevStagram es crear una comunidad digital donde los desarrolladores puedan mostrar su trabajo, inspirarse mutuamente y construir conexiones profesionales y personales mediante el poder visual.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
