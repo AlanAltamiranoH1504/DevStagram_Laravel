@@ -12,20 +12,20 @@
     <body>
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between items-center">
-                <a href="/" class="text-3xl font-black">DevStagram</a>
+                <a href="/" class="text-3xl font-black hover:text-indigo-700">DevStagram</a>
 
                 @if(auth()->user())
                     <nav class="flex gap-4 items-center">
-                        <a class="font-bold uppercase text-gray-600 text-sm  text-xl" href="{{route("home-devStagram")}}">Home</a>
+                        <a class="font-bold uppercase text-gray-600 text-xl" href="{{route("home-devStagram")}}">Perfil</a>
                         <form action="{{route("cerrar-sesion")}}" method="post" id="formCerrarSesion">
                             <input type="hidden" name="csrf" id="csrf" value="{{csrf_token()}}">
-                            <button type="submit" class="font-bold uppercase text-red-800 text-xl">Cerrar Sesión</button>
+                            <button type="submit" class="font-bold uppercase text-red-800 hover:text-red-950 text-xl">Cerrar Sesión</button>
                         </form>
                     </nav>
                 @else
                     <nav class="flex gap-4 items-center">
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route("login")}}">Iniciar Sesión</a>
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route("crear-cuenta")}}">Crear Cuenta</a>
+                        <a class="font-bold uppercase text-indigo-600 hover:text-indigo-800 text-xl" href="{{route("login")}}">Iniciar Sesión</a>
+                        <a class="font-bold uppercase text-gray-600 hover:text-gray-800 text-xl" href="{{route("crear-cuenta")}}">Crear Cuenta</a>
                     </nav>
                 @endif
             </div>

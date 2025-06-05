@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const inputPassword = document.querySelector("#password").value;
         const token = document.querySelector("#csrf").value;
 
-        const responseBody = {
+        const requestBody = {
             email: inputEmail,
             password: inputPassword
         }
 
         try {
-            const response = await axios.post("/iniciar-sesion", responseBody, {
+            const response = await axios.post("/iniciar-sesion", requestBody, {
                 headers: {
                     "Content-Type": "application/json",
                     "X-CSRF-TOKEN": token

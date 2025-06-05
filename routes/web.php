@@ -14,4 +14,5 @@ Route::post("/iniciar-sesion", [\App\Http\Controllers\LoginController::class, "l
 
 //Rutas para posts
 Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram")->middleware("auth");
+Route::get("/muro/{nombre}", [\App\Http\Controllers\PostController::class, "findUsuario"])->name("findUsuario");
 Route::post("/cerrar-sesion", [\App\Http\Controllers\LoginController::class, "logout"])->name("cerrar-sesion");

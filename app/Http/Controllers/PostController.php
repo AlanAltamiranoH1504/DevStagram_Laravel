@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,6 +14,18 @@ class PostController extends Controller
     public function index()
     {
         return view("posts.index");
+    }
+
+    public function findUsuario($nombre)
+    {
+        $usuario = User::where([
+            "username" => $nombre
+        ])->first();
+//        dd($usuario);
+
+        return view("posts.findUsuario", [
+            "usuario" => $usuario
+        ]);
     }
 
     /**
