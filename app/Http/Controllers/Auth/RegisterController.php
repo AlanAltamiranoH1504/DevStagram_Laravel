@@ -35,23 +35,4 @@ class RegisterController extends Controller
             "status" => 200
         ]);
     }
-
-    public function indexLogin()
-    {
-        return view("auth.FormLogin");
-    }
-
-    public function login(LoginRequest $request) {
-
-        $data = $request->validated();
-        $usuarioDB = User::where("email", $data["email"])->first();
-
-
-        return response()->json([
-            "msg" => "Llega al controlador",
-            "status" => 200,
-            "data" => $request,
-            "usuario" => $usuarioDB
-        ]);
-    }
 }

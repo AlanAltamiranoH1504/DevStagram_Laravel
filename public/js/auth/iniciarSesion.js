@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
             if (response.status === 200){
-                console.log(response.data);
+                window.location.href = "/muro";
             }
         }catch (e) {
             console.log("Error en la peticion");
