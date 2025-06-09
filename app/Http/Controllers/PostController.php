@@ -21,7 +21,6 @@ class PostController extends Controller
         $usuario = User::where([
             "username" => $nombre
         ])->first();
-//        dd($usuario);
 
         return view("posts.findUsuario", [
             "usuario" => $usuario
@@ -33,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view("posts.create");
     }
 
     /**

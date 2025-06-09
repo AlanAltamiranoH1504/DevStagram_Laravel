@@ -35,10 +35,7 @@ class LoginController extends Controller
     {
         try {
             auth()->logout();
-            return response()->json([
-                "status" => 200,
-                "msg" => "Logout Exitosa"
-            ]);
+            return redirect()->route("login");
         }catch (\Exception $e){
             return response()->json([
                 "status" => 500,

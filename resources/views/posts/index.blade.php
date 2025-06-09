@@ -28,5 +28,5 @@
 @endsection
 
 @section("scripts")
-    <script src="/js/auth/cerrarSesion.js"></script>
+
 @endsection
