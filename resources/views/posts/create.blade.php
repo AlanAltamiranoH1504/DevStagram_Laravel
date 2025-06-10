@@ -9,7 +9,8 @@
     @section("contenido")
         <div class="md:flex md:items-start gap-10">
             <div class="md:w-1/2 flex justify-center items-center mb-6 md:mb-0">
-                <form action="/imagen" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded-lg flex flex-col justify-center items-center">
+                <form action="{{route("save_imagen")}}" method="post" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded-lg flex flex-col justify-center items-center">
+                    @csrf
                 </form>
             </div>
             <div class="md:w-1/2 bg-white p-6 rounded-lg shadow-sm border w-full max-w-xl">

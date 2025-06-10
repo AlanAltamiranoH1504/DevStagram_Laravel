@@ -16,8 +16,8 @@ Route::post("/iniciar-sesion", [\App\Http\Controllers\LoginController::class, "l
 
 Route::middleware("auth")->group(function (){
     Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram");
-//    Route::post("/cerrar-sesion", [\App\Http\Controllers\LoginController::class, "logout"])->name("cerrar-sesion");
     Route::get("/posts/create", [\App\Http\Controllers\PostController::class, "create"])->name("post_create");
+    Route::post("/imagenes", [\App\Http\Controllers\ImagenController::class, "store"])->name("save_imagen");
 });
 //Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram")->middleware("auth");
 Route::get("/muro/{nombre}", [\App\Http\Controllers\PostController::class, "findUsuario"])->name("findUsuario");

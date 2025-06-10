@@ -33,7 +33,6 @@
                 <a class="font-bold uppercase text-gray-600" href="{{route("home-devStagram")}}">Perfil</a>
                 <form action="{{route("cerrar-sesion")}}" method="post" id="formCerrarSesion">
                     @csrf
-{{--                    <input type="hidden" name="csrf" id="csrf" value="{{csrf_token()}}">--}}
                     <button type="submit" class="font-bold uppercase text-red-600 hover:text-red-800">Cerrar Sesión
                     </button>
                 </form>
