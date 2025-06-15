@@ -1,3 +1,14 @@
+
+export async function peticionesGET(endPoint){
+    try {
+        const response = await axios.get(endPoint);
+        if (response.status === 200){
+            return response.data;
+        }
+    }catch (e) {
+        return e;
+    }
+}
 export async function peticionesPOST(endPoint, request, csrf) {
     try {
         const response = await axios.post(endPoint, request, {

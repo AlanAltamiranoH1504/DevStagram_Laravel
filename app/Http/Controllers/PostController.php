@@ -18,6 +18,23 @@ class PostController extends Controller
         return view("posts.index");
     }
 
+    public function findAllPosts()
+    {
+        $usuarionInSession = auth()->user();
+        $idUsuario = $usuarionInSession['id'];
+        try {
+            $posts = Post::where(
+                "user_id", $idUsuario
+            )->get();
+            return response()->json($posts);
+        } catch (\Exception $e) {
+            return response()->json([
+                "error" => "Error en listado de posts",
+                "message" => $e->getMessage()
+            ]);
+        }
+    }
+
     public function findUsuario($nombre)
     {
         $usuario = User::where([
@@ -56,7 +73,7 @@ class PostController extends Controller
                 "message" => "Post creado correctamente.",
                 "status" => 201
             ]);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return response()->json([
                 "error" => "Error en la creacion del post.",
                 "message" => $e->getMessage()
