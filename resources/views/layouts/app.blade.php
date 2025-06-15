@@ -39,9 +39,9 @@
             </nav>
         @else
             <nav class="flex gap-4 items-center">
-                <a class="font-bold uppercase text-indigo-600 hover:text-indigo-800 text-xl" href="{{route("login")}}">Iniciar
+                <a class="font-bold uppercase text-gray-600  hover:text-indigo-600 text-xl" href="{{route("login")}}">Iniciar
                     Sesión</a>
-                <a class="font-bold uppercase text-gray-600 hover:text-gray-800 text-xl"
+                <a class="font-bold uppercase text-gray-600 hover:text-indigo-600 text-xl"
                    href="{{route("crear-cuenta")}}">Crear Cuenta</a>
             </nav>
         @endif

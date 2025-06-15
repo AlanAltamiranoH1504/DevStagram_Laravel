@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostSaveRequest;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -38,9 +40,28 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostSaveRequest $request)
     {
-        //
+        $data = $request->validated();
+        try {
+            $usuarioEnSesion = auth()->user();
+            $userId = $usuarioEnSesion['id'];
+            Post::create([
+                "title" => $data["titulo"],
+                "description" => $data['descripcion'],
+                "imagen" => $data["idImagen"],
+                "user_id" => $userId
+            ]);
+            return response()->json([
+                "message" => "Post creado correctamente.",
+                "status" => 201
+            ]);
+        }catch (\Exception $e) {
+            return response()->json([
+                "error" => "Error en la creacion del post.",
+                "message" => $e->getMessage()
+            ]);
+        }
     }
 
     /**
