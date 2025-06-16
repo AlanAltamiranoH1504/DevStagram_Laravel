@@ -86,7 +86,32 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::with("user")->find($id);
+        //Verificacion de existencia del post
+        if (!$post) {
+            return view("errors.404");
+        }
+        //Verificacion de propiedad del post
+        $idUsuarioEnSesion = auth()->user()->id;
+        if ($idUsuarioEnSesion !== $post->user_id) {
+            return view("errors.403");
+        }
+        return view("posts.show", [
+            "nombrePagina" => $post->title
+        ]);
+    }
+
+    public function findById($id)
+    {
+        try {
+            $post = Post::with("user")->find($id);
+            return response()->json($post);
+        } catch (\Exception $e) {
+            return response()->json([
+                "error" => "Error en la busqueda de post con id: " . $id,
+                "message" => $e->getMessage()
+            ]);
+        }
     }
 
     /**

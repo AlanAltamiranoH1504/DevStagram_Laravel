@@ -1,12 +1,10 @@
 import {peticionesGET} from "../index.js";
-
 document.addEventListener("DOMContentLoaded", () => {
     findAllPosts();
 
     async function findAllPosts() {
         try {
             const response = await axios.get("/posts");
-            console.log(response.daa)
             renderPosts(response.data);
         } catch (e) {
             console.log(e.message);
@@ -22,8 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             posts.forEach((post) => {
                 const divPost = document.createElement("div");
+                divPost.classList.add("bg-white", "shadow", "p-4", "rounded", "border")
                 divPost.innerHTML = `
-                <a href="#">
+                <a href="/posts/${post.id}/${post.title}">
                     <img src="/storage/${post.imagen}" alt="Imagen del Post ${post.title}">
                 </a>
             `;

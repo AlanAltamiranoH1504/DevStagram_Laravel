@@ -1,14 +1,25 @@
-
-export async function peticionesGET(endPoint){
+export async function peticionesGET(endPoint) {
     try {
         const response = await axios.get(endPoint);
-        if (response.status === 200){
+        if (response.status === 200) {
             return response.data;
         }
-    }catch (e) {
+    } catch (e) {
         return e;
     }
 }
+
+export async function peticionesGETWithID(endPoint) {
+    try {
+        const response = await axios.get(endPoint);
+        if (response.status === 200) {
+            return response.data;
+        }
+    } catch (e) {
+        return e;
+    }
+}
+
 export async function peticionesPOST(endPoint, request, csrf) {
     try {
         const response = await axios.post(endPoint, request, {
@@ -24,7 +35,7 @@ export async function peticionesPOST(endPoint, request, csrf) {
     }
 }
 
-export function mostrarErrores(lugar, erroresArray, tipo){
+export function mostrarErrores(lugar, erroresArray, tipo) {
     const divErrores = document.querySelector(`#${lugar}`);
     erroresArray.forEach((error) => {
         const pError = document.createElement("p");

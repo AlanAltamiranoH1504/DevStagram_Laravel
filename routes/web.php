@@ -19,6 +19,8 @@ Route::middleware("auth")->group(function (){
     Route::get("/posts/create", [\App\Http\Controllers\PostController::class, "create"])->name("post_create");
     Route::post("/posts/save", [\App\Http\Controllers\PostController::class, "store"])->name("post_save");
     Route::get("/posts", [\App\Http\Controllers\PostController::class, "findAllPosts"])->name("posts_findAll");
+    Route::get("/posts/{id}/{title}", [\App\Http\Controllers\PostController::class, "show"])->name("post_show");
+    Route::get("/posts/{id}", [\App\Http\Controllers\PostController::class, "findById"])->name("post_findById");
     Route::post("/imagenes", [\App\Http\Controllers\ImagenController::class, "store"])->name("save_imagen");
 });
 //Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram")->middleware("auth");
