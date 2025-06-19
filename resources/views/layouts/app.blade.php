@@ -10,7 +10,7 @@
     <title>DevStagram - @yield("nombrePagina")</title>
 </head>
 <body>
-<header class="p-5 border-b bg-white shadow">
+<header class="p-5 border-b bg-slate-100 shadow">
     <div class="container mx-auto flex justify-between items-center">
         <a href="/" class="text-3xl font-black hover:text-indigo-700">DevStagram</a>
 
@@ -47,12 +47,12 @@
     </div>
 </header>
 
-<main class="container mx-auto mt-10">
+<main class="container bg-slate-100 mx-auto p-5 mt-10">
     <h2 class="font-black text-center text-3xl mb-10">@yield("nombrePagina")</h2>
     @yield("contenido")
 </main>
 
-<footer class="text-center border-t mt-10 p-5 text-gray-600 font-bold uppercase">
+<footer class="text-center border-t bg-slate-100 mt-10 p-5 text-gray-600 font-bold uppercase">
     DevStagram - Derechos Reservados {{date("Y")}}
 </footer>
 

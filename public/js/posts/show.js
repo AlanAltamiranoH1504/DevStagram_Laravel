@@ -1,7 +1,8 @@
-import {peticionesGETWithID} from "../index.js";
+import {peticionesGETWithID, peticionesPOST} from "../index.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     peticionBusqueda();
+
     async function peticionBusqueda() {
         const path = window.location.pathname;
         const pathParts = path.split("/");
@@ -14,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function llenadoVista(infoPost) {
         const fechaCreacion = infoPost.created_at;
         const fechaConFormato = moment(fechaCreacion).format("DD/MM/YYYY");
+        const {comentarios} = infoPost;
+        renderCometarios(comentarios);
 
         document.querySelector("#imgPublicacion").setAttribute("src", `/storage/${infoPost.imagen}`);
         document.querySelector("#nombreUsuario").innerHTML = `
@@ -30,6 +33,60 @@ document.addEventListener("DOMContentLoaded", () => {
             ${fechaConFormato}
         `;
         document.querySelector("#descripcion").textContent = infoPost.description;
+    }
+
+    function renderCometarios(comentarios) {
+        const comentariosDiv = document.querySelector("#comentarios");
+        if (comentarios.length > 0) {
+            comentarios.forEach((comentario) => {
+                console.log(comentario)
+                const divComentario = document.createElement("div");
+                divComentario.classList.add("p-5", "border-gray-300", "border-b");
+                divComentario.innerHTML = `
+                    <p class="font-bold">${comentario.user.name}</p>
+                    <p>
+                        ${comentario.comentario}
+                    </p>
+                    <p class="text-sm text-gray-500">${moment(comentario.created_at).format("DD/MM/YYYY")}</p>
+                `;
+                comentariosDiv.appendChild(divComentario);
+            });
+        } else {
+            console.log("No hya comentarios");
+        }
+    }
+
+    if (document.querySelector("#formNuevoComentario")) {
+        const formNuevoComentario = document.querySelector("#formNuevoComentario");
+        formNuevoComentario.addEventListener("submit", saveComentario);
+    }
+
+    async function saveComentario(e) {
+        e.preventDefault();
+        const path = window.location.pathname;
+        const pathParts = path.split("/");
+        const id = pathParts[2];
+        const token = document.querySelector("#csrf").value;
+        const inputComemtario = document.querySelector("#comentario").value
+
+        const requestBody = {
+            comentario: inputComemtario,
+            post_id: Number(id)
+        }
+
+        const response = await peticionesPOST("/comentarios/save", requestBody, token);
+        if (response.status === 201) {
+            Swal.fire({
+                title: "Comentario guardado.",
+                text: "Operacion exitosa",
+                icon: "success",
+                textConfirmButton: "Aceptar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/muro";
+                }
+            })
+        }
     }
 })
 

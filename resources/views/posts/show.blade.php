@@ -5,7 +5,7 @@
 @endsection
 
 @section("contenido")
-    <div class="container mx-auto flex mx-3">
+    <div class="container mx-auto md:flex mx-3">
         <div class="md:w-1/2 border p-5 bg-white shadow rounded-lg">
             <img src="" alt="Imagen del post" class="h-96 mx-auto rounded" id="imgPublicacion">
             <div class="p-3">
@@ -22,8 +22,27 @@
                 <p class="mt-5" id="descripcion"></p>
             </div>
         </div>
-        <div class="md:w-1/2">
-            2
+        <div class="md:w-1/2 p-5">
+            <div class="shadow bg-white p-5 mb-5">
+                <p class="text-xl font-bold text-center mb-4">Comentarios</p>
+                @if(auth()->user())
+                    <p class="text-xl font-bold text-center mb-4">Agrega Un Nuevo Comentario</p>
+                    <form id="formNuevoComentario">
+                        <input type="hidden" id="csrf" value="{{csrf_token()}}">
+                        <div class="mb-5">
+                            <label for="comentario" class="p-2 font-semibold uppercase block">Comentario:</label>
+                            <textarea id="comentario" name="comentario" class="border w-full p-2 border-gray-600 rounded-lg" rows="8" placeholder="Ingresa tu comentario"></textarea>
+                        </div>
+                        <div class="mb-5">
+                            <input type="submit" value="Agregar Comentario" class="border p-2 rounded-lg w-full bg-gray-500 text-white font-semibold cursor-pointer hover:bg-gray-600">
+                        </div>
+                    </form>
+                    <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10" id="comentarios"></div>
+                @else
+                    <p>Inicia Sesión para Agregar Comentarios</p>
+                    <a href="/iniciar-sesion" class="my-4 rounded p-2 border block text-center font-semibold bg-gray-500 rounded-lg text-white hover:bg-gray-600 uppercase">Inicar Sesión</a>
+                @endif
+            </div>
         </div>
     </div>
 @endsection

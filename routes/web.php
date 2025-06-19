@@ -22,7 +22,12 @@ Route::middleware("auth")->group(function (){
     Route::get("/posts/{id}/{title}", [\App\Http\Controllers\PostController::class, "show"])->name("post_show");
     Route::get("/posts/{id}", [\App\Http\Controllers\PostController::class, "findById"])->name("post_findById");
     Route::post("/imagenes", [\App\Http\Controllers\ImagenController::class, "store"])->name("save_imagen");
+
+    //Rutas comentarios
+    Route::post("/comentarios/save", [\App\Http\Controllers\ComentarioController::class, "store"])->name("comentario_save");
 });
-//Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram")->middleware("auth");
+Route::get("/posts/{id}/{title}", [\App\Http\Controllers\PostController::class, "show"])->name("post_show");
+Route::get("/posts/{id}", [\App\Http\Controllers\PostController::class, "findById"])->name("post_findById");
+
 Route::get("/muro/{nombre}", [\App\Http\Controllers\PostController::class, "findUsuario"])->name("findUsuario");
 Route::post("/cerrar-sesion", [\App\Http\Controllers\LoginController::class, "logout"])->name("cerrar-sesion");
