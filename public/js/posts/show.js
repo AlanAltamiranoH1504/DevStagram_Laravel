@@ -130,7 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const response = await peticionesPOST("/likes/save", requestBody, csrfLike);
-        console.log(response);
+        const { like } = response;
+        const iconoLikePath = document.querySelector("#iconoLike path");
+
+        if (like) {
+            iconoLikePath.setAttribute("fill", "red");
+        } else {
+            iconoLikePath.setAttribute("fill", "none");
+        }
     }
 })
 
