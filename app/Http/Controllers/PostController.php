@@ -7,6 +7,7 @@ use App\Http\Requests\PostSaveRequest;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -114,6 +115,15 @@ class PostController extends Controller
         }
     }
 
+    public function usuarioEnSesion()
+    {
+        if (auth()->user()) {
+            return response()->json([
+                "usuario" => auth()->user()
+            ]);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -135,6 +145,19 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $post = Post::with("user")->find($id);
+            $post->delete();
+            //Eliminacion de imagen
+            Storage::disk("public")->delete($post->imagen);
+
+            return response()->json([
+                "message" => "Post eliminado correctamente"
+            ]);
+        }catch (\Exception $e) {
+            return response()->json([
+                "error" => "Error en la eliminacion del post."
+            ]);
+        }
     }
 }

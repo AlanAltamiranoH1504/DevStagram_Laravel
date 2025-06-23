@@ -16,11 +16,17 @@ Route::post("/iniciar-sesion", [\App\Http\Controllers\LoginController::class, "l
 
 Route::middleware("auth")->group(function (){
     Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram");
+
+    //Rutas para Post
     Route::get("/posts/create", [\App\Http\Controllers\PostController::class, "create"])->name("post_create");
     Route::post("/posts/save", [\App\Http\Controllers\PostController::class, "store"])->name("post_save");
     Route::get("/posts", [\App\Http\Controllers\PostController::class, "findAllPosts"])->name("posts_findAll");
     Route::get("/posts/{id}/{title}", [\App\Http\Controllers\PostController::class, "show"])->name("post_show");
     Route::get("/posts/{id}", [\App\Http\Controllers\PostController::class, "findById"])->name("post_findById");
+    Route::get("/user/in/sesion", [\App\Http\Controllers\PostController::class, "usuarioEnSesion"])->name("usuarioEnSesion");
+    Route::delete("/posts/{id}", [\App\Http\Controllers\PostController::class, "destroy"])->name("post_destroy");
+
+    //Rutas para imagenes
     Route::post("/imagenes", [\App\Http\Controllers\ImagenController::class, "store"])->name("save_imagen");
 
     //Rutas comentarios

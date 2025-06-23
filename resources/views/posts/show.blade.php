@@ -18,8 +18,12 @@
             </div>
             <div class="p-3">
                 <p class="font-bold flex align-middle items-center" id="nombreUsuario"></p>
-                <p class="text-sm flex align-middle items-center" id="fechaCreacion"></p>
+                <p class="text-sm flex align-middle items-center space-x-6" id="fechaCreacion"></p>
                 <p class="mt-5" id="descripcion"></p>
+                <form id="formDeletePost">
+                    <input type="hidden" id="csrfDelete" value="{{csrf_token()}}">
+                    <button id="btnEliminarPost" type="button" class="border p-2 mt-3 w-full font-semibold rounded-lg bg-red-600 text-white hover:bg-red-700 hidden">Eliminar Publicación</button>
+                </form>
             </div>
         </div>
         <div class="md:w-1/2 p-5">
@@ -33,11 +37,14 @@
                             <label for="comentario" class="p-2 font-semibold uppercase block">Comentario:</label>
                             <textarea id="comentario" name="comentario" class="border w-full p-2 border-gray-600 rounded-lg" rows="8" placeholder="Ingresa tu comentario"></textarea>
                         </div>
-                        <div class="mb-5">
+                        <div class="">
                             <input type="submit" value="Agregar Comentario" class="border p-2 rounded-lg w-full bg-gray-500 text-white font-semibold cursor-pointer hover:bg-gray-600">
                         </div>
                     </form>
-                    <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10" id="comentarios"></div>
+                    <div class="bg-white shadow max-h-96 overflow-y-scroll mt-3" id="comentarios"></div>
+                    <div class=" shadow mb-5 max-h-96 hidden" id="noComentarios">
+                        <p class=" text-center p-2 bg-orange-500 text-white font-semibold rounded-lg">No hay comentarios disponibles</p>
+                    </div>
                 @else
                     <p>Inicia Sesión para Agregar Comentarios</p>
                     <a href="/iniciar-sesion" class="my-4 rounded p-2 border block text-center font-semibold bg-gray-500 rounded-lg text-white hover:bg-gray-600 uppercase">Inicar Sesión</a>

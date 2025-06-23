@@ -1,3 +1,4 @@
+
 export async function peticionesGET(endPoint) {
     try {
         const response = await axios.get(endPoint);
@@ -28,6 +29,21 @@ export async function peticionesPOST(endPoint, request, csrf) {
             }
         });
         if (response.status === 200) {
+            return response.data;
+        }
+    } catch (e) {
+        return e;
+    }
+}
+
+export async function peticionesDELETE(endPoint, csrf) {
+    try {
+        const response = await axios.delete(endPoint, {
+            headers: {
+                "X-CSRF-TOKEN": csrf
+            }
+        });
+        if (response.status === 200){
             return response.data;
         }
     } catch (e) {
