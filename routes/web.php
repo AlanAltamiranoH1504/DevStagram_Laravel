@@ -31,6 +31,9 @@ Route::middleware("auth")->group(function (){
 
     //Rutas comentarios
     Route::post("/comentarios/save", [\App\Http\Controllers\ComentarioController::class, "store"])->name("comentario_save");
+
+    //Rutas para likes
+    Route::post("/likes/save", [\App\Http\Controllers\LikeController::class, "store"])->name("like_save");
 });
 Route::get("/posts/{id}/{title}", [\App\Http\Controllers\PostController::class, "show"])->name("post_show");
 Route::get("/posts/{id}", [\App\Http\Controllers\PostController::class, "findById"])->name("post_findById");

@@ -2,6 +2,9 @@ import {peticionesDELETE, peticionesGET, peticionesGETWithID, peticionesPOST} fr
 
 document.addEventListener("DOMContentLoaded", () => {
     peticionBusqueda();
+    const btnLikePost = document.querySelector("#btnLikePost");
+
+    btnLikePost.addEventListener("click", saveLike);
 
     async function peticionBusqueda() {
         const path = window.location.pathname;
@@ -15,9 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     async function llenadoVista(infoPost) {
         const fechaCreacion = infoPost.created_at;
         const fechaConFormato = moment(fechaCreacion).format("DD/MM/YYYY");
-        const {user_id, user, comentarios} = infoPost;
-        renderCometarios(comentarios);
+        const {user_id, user, comentarios, likes} = infoPost;
+        const totalLikes = likes.length ? likes.length : 0;
 
+        renderCometarios(comentarios);
 
         document.querySelector("#imgPublicacion").setAttribute("src", `/storage/${infoPost.imagen}`);
         document.querySelector("#nombreUsuario").innerHTML = `
@@ -36,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ${fechaConFormato}
         `;
         document.querySelector("#descripcion").textContent = infoPost.description;
-
+        const likesHmtl = document.querySelector("#countLikes");
+        likesHmtl.textContent = `${totalLikes} likes`
         const usuarioEnSesion = await peticionesGET("/user/in/sesion");
         if (user_id == usuarioEnSesion.usuario.id) {
             document.querySelector("#btnEliminarPost").classList.remove("hidden");
@@ -113,6 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "/muro"
             }
         });
+    }
+
+    async function saveLike() {
+        const path = window.location.pathname;
+        const pathParts = path.split("/");
+        const id = pathParts[2];
+        const csrfLike = document.querySelector("#csrfLike").value;
+        const requestBody = {
+            post_id: id
+        }
+
+        const response = await peticionesPOST("/likes/save", requestBody, csrfLike);
+        console.log(response);
     }
 })
 

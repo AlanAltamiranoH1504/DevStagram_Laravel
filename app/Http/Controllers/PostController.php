@@ -105,7 +105,7 @@ class PostController extends Controller
     public function findById($id)
     {
         try {
-            $post = Post::with("user", "comentarios.user")->find($id);
+            $post = Post::with("user", "comentarios.user", "likes")->find($id);
             return response()->json($post);
         } catch (\Exception $e) {
             return response()->json([
