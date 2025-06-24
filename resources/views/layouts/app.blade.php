@@ -17,7 +17,7 @@
         @if(auth()->user())
             <nav class="flex gap-4 items-center">
                 <a
-                    class="font-bold uppercase border p-1 rounded-lg border-gray-600 bg-gray-500 text-white hover:bg-white hover:text-gray-600
+                    class="font-bold uppercase  p-1 rounded-lg text-gray-600 hover:text-gray-700
                             flex items-center align-middle gap-2 cursor-pointer"
                     href="{{route("post_create")}}"
                 >

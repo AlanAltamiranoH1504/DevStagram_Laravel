@@ -15,7 +15,12 @@ Route::post("/iniciar-sesion", [\App\Http\Controllers\LoginController::class, "l
 //Rutas para posts
 
 Route::middleware("auth")->group(function (){
+    //Rutas de muro
     Route::get("/muro", [\App\Http\Controllers\PostController::class, "index"])->name("home-devStagram");
+
+    //Rutas para usuario
+    Route::get("/user/edit", [\App\Http\Controllers\UserController::class, "show"])->name("user_show");
+    Route::put("/user/update", [\App\Http\Controllers\UserController::class, "update"])->name("user_update");
 
     //Rutas para Post
     Route::get("/posts/create", [\App\Http\Controllers\PostController::class, "create"])->name("post_create");
