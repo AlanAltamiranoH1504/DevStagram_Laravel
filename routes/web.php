@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('principal');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, "index"])->name("home");
 
 //Rutas para auth
 Route::get("/crear-cuenta", [\App\Http\Controllers\Auth\RegisterController::class, "index"])->name("crear-cuenta");

@@ -26,7 +26,7 @@ class PostController extends Controller
         try {
             $posts = Post::where(
                 "user_id", $idUsuario
-            )->get();
+            )->orderBy("created_at", "desc")->get();
             return response()->json($posts);
         } catch (\Exception $e) {
             return response()->json([
