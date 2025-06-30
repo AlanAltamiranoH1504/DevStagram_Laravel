@@ -38,7 +38,7 @@ class PostController extends Controller
 
     public function findUsuario($nombre)
     {
-        $usuario = User::where([
+        $usuario = User::with("posts")->where([
             "username" => $nombre
         ])->first();
 
