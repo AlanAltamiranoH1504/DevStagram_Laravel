@@ -65,7 +65,6 @@ class UserController extends Controller
                 $upload = $request->file('imagen');
                 $nombreImagen = Str::random() . '.' . $upload->getClientOriginalExtension();
 
-                // Guardar la imagen tal cual, sin modificar tamaño ni calidad
                 Storage::disk('public')->put(
                     $nombreImagen,
                     file_get_contents($upload->getRealPath())
@@ -108,5 +107,16 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function findAllSiguiendo()
+    {
+        $userInSession = auth()->user()->id;
+        $user2 = User::where([
+            "id" => $userInSession
+        ])->first();
+        return response()->json([
+            "siguiendo" => $user2->following()->count()
+        ]);
     }
 }

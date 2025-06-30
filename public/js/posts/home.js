@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     async function findAllPosts() {
         try {
             const response = await axios.get("/posts");
+            const responseSiguiendo = await axios.get("/user/findAllSiguiendo");
+            document.querySelector("#pSiguiendo").innerHTML = `${responseSiguiendo.data.siguiendo} <span class="font-normal">Siguiendo</span>`
             renderPosts(response.data);
         } catch (e) {
             console.log(e.message);

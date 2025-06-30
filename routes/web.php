@@ -21,6 +21,7 @@ Route::middleware("auth")->group(function (){
     //Rutas para usuario
     Route::get("/user/edit", [\App\Http\Controllers\UserController::class, "show"])->name("user_show");
     Route::put("/user/update", [\App\Http\Controllers\UserController::class, "update"])->name("user_update");
+    Route::get("/user/findAllSiguiendo", [\App\Http\Controllers\UserController::class, "findAllSiguiendo"])->name("user_findAllSiguiendo");
 
     //Rutas para Post
     Route::get("/posts/create", [\App\Http\Controllers\PostController::class, "create"])->name("post_create");
@@ -39,6 +40,10 @@ Route::middleware("auth")->group(function (){
 
     //Rutas para likes
     Route::post("/likes/save", [\App\Http\Controllers\LikeController::class, "store"])->name("like_save");
+
+    //Rutas para followers
+    Route::post("/follow", [\App\Http\Controllers\FollowerController::class, "store"])->name("user_follow");
+    Route::delete("/unfollow", [\App\Http\Controllers\FollowerController::class, "destroy"])->name("user_unfollow");
 });
 Route::get("/posts/{id}/{title}", [\App\Http\Controllers\PostController::class, "show"])->name("post_show");
 Route::get("/posts/{id}", [\App\Http\Controllers\PostController::class, "findById"])->name("post_findById");
