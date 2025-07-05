@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite("resources/css/app.css")
     @vite("resources/js/app.js")
+    @LivewireStyles
     <title>DevStagram - @yield("nombrePagina")</title>
 </head>
 <body>
@@ -58,6 +59,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@LivewireScripts
 @yield("scripts")
 </body>
 </html>
